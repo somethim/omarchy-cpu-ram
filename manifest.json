@@ -21,6 +21,7 @@
       "showCpu": true,
       "showRam": true,
       "showTemp": true,
+      "showRamBytes": true,
       "cpuAlert": 85,
       "memAlert": 90,
       "tempAlert": 85
@@ -29,6 +30,7 @@
       { "key": "showCpu", "type": "bool", "label": "Show CPU" },
       { "key": "showRam", "type": "bool", "label": "Show RAM" },
       { "key": "showTemp", "type": "bool", "label": "Show CPU temperature" },
+      { "key": "showRamBytes", "type": "bool", "label": "Show RAM used/total on the bar" },
       { "key": "cpuAlert", "type": "int", "label": "CPU alert percent" },
       { "key": "memAlert", "type": "int", "label": "Memory alert percent" },
       { "key": "tempAlert", "type": "int", "label": "Temperature alert \u00b0C" }

@@ -94,6 +94,7 @@ be tuned inline:
 | `showCpu`    | bool   | `true`  | Show CPU percent on the bar                |
 | `showRam`    | bool   | `true`  | Show RAM percent + used/total on the bar   |
 | `showTemp`   | bool   | `true`  | Show CPU temperature on the bar            |
+| `showRamBytes` | bool | `true`  | Show RAM used/total after the percent      |
 | `cpuAlert`   | int    | `85`    | CPU % threshold for the urgent color       |
 | `memAlert`   | int    | `90`    | RAM % threshold for the urgent color       |
 | `tempAlert`  | int    | `85`    | CPU °C threshold for the urgent color      |

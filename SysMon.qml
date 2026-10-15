@@ -33,6 +33,7 @@ Panel {
   readonly property bool showCpu: setting("showCpu", true) === true
   readonly property bool showRam: setting("showRam", true) === true
   readonly property bool showTemp: setting("showTemp", true) === true
+  readonly property bool showRamBytes: setting("showRamBytes", true) === true
   readonly property int cpuAlert: clampAlert(setting("cpuAlert", 85))
   readonly property int memAlert: clampAlert(setting("memAlert", 90))
   readonly property int tempAlert: clampTempAlert(setting("tempAlert", 85))
@@ -187,7 +188,8 @@ Panel {
   // ------------------------------------------------------------- labels
   readonly property string cpuLabel: "CPU " + Math.round(cpuPercent) + "%"
   readonly property string tempLabel: tempC + "\u00b0C"
-  readonly property string ramLabel: "RAM " + Math.round(ramPercent) + "% " + Model.compactBytes(mem.used) + "/" + Model.compactBytes(mem.total)
+  readonly property string ramLabel: "RAM " + Math.round(ramPercent) + "%"
+    + (showRamBytes ? " " + Model.compactBytes(mem.used) + "/" + Model.compactBytes(mem.total) : "")
 
   // Vertical bars are too narrow for the full line; CPU percent only.
   readonly property string labelText: {
