@@ -106,8 +106,9 @@ Panel {
   }
 
   // CPU temp source discovery. Thermal zone numbers are dynamic across
-  // boots, so locate x86_pkg_temp (fallback: coretemp package) on a slow
-  // probe and only cat the single file on the hot path.
+  // boots, so locate x86_pkg_temp (fallback: the coretemp package, or
+  // k10temp/zenpower Tctl on AMD) on a slow probe and only cat the single
+  // file on the hot path.
   Timer {
     id: tempProbeTimer
     interval: 30000
@@ -127,7 +128,7 @@ Panel {
       "[ \"$(cat \"$z/type\" 2>/dev/null)\" = \"x86_pkg_temp\" ] && { echo \"$z/temp\"; exit 0; }; " +
       "done; " +
       "for h in /sys/class/hwmon/hwmon*; do " +
-      "[ \"$(cat \"$h/name\" 2>/dev/null)\" = \"coretemp\" ] && { echo \"$h/temp1_input\"; exit 0; }; " +
+      "case \"$(cat \"$h/name\" 2>/dev/null)\" in coretemp|k10temp|zenpower) echo \"$h/temp1_input\"; exit 0;; esac; " +
       "done"
     ]
     stdout: StdioCollector {

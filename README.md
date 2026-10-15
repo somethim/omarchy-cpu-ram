@@ -24,7 +24,7 @@ processes.
   absolute. The process list is sampled only while the popup is open, so the
   idle cost stays one trivial process per second.
 - **CPU temperature** — the package temp (`x86_pkg_temp` thermal zone, with a
-  `coretemp` fallback) is discovered by a slow 30s probe, because thermal
+  `coretemp` fallback, or `k10temp`/`zenpower` on AMD) is discovered by a slow 30s probe, because thermal
   zone numbers shift across boots. No root required.
 - **Vertical bars** — collapse to the CPU percent; details live in the tooltip.
 
